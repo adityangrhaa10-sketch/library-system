@@ -7,7 +7,7 @@ use App\http\Controllers\MemberController;
 
 
 Route::get('/', function () {
-    return view ('welcome');
+    return view('welcome');
 });
 
 Route::get('/books' , [BookController::class, 'index']);
