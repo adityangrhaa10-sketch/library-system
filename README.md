@@ -1,43 +1,59 @@
-#Library System
-##Description
+# Library System
 
-Library System adalah aplikasi sederhana untuk mengelola informasi perpustakaan, seperti data buku, anggota, dan peminjaman. Project ini dibangun menggunakan framework Laravel sebagai bagian dari tugas Pertemuan 4 - Laravel Environment Setup.
+## Deskripsi
+Library System adalah aplikasi web sederhana untuk mengelola informasi perpustakaan digital, seperti melihat daftar buku, kategori, anggota, serta detail buku. Project ini dibangun menggunakan framework **Laravel 13** tanpa basis data (menggunakan data *dummy* array) sebagai bagian dari **Tugas Praktikum Pertemuan 6 - Implementasi Routing, Controller, dan Blade**.
 
-Requirements
-- PHP
-- Composer
-- MySQL
-- Laravel
-  
-1. Installation
-Clone repository ini ke komputer lokal
-bash
-   git clone https://github.com/USERNAME/library-system.git
+## Fitur Utama
+* **Dashboard (`/dashboard`)**: Menampilkan statistik singkat aplikasi (*dummy data*).
+* **Books (`/books`)**: Menampilkan daftar koleksi buku beserta penulis dan tahun terbit.
+* **Book Detail (`/books/{id}`)**: Menampilkan detail ID buku menggunakan *route parameter*.
+* **Categories (`/categories`)**: Menampilkan daftar kategori buku.
+* **Members (`/members`)**: Menampilkan daftar anggota perpustakaan.
+* **Blade Templating**: Menggunakan *layout master* (`layouts/app.blade.php`) dengan arahan `@extends`, `@section`, `@yield`, `@foreach`, dan `@if`.
+
+## Prasyarat System
+* PHP >= 8.2
+* Composer
+* Laravel 13
+
+## Cara Menjalankan Project
+
+1. **Clone repository ini ke komputer lokal:**
+   ```bash
+   git clone [https://github.com/adityangrhaa10-sketch/library-system.git](https://github.com/adityangrhaa10-sketch/library-system.git)
    cd library-system
-2. Install semua dependency PHP menggunakan Composer
-bash
-   composer install
-3. Salin file .env.example menjadi .env
-bash
-   cp .env.example .env
-4. Generate application key
-bash
-   php artisan key:generate
-5. Buat database baru di MySQL dengan nama library_system
-6. Buka file .env, lalu sesuaikan konfigurasi database berikut:
-   DB_CONNECTION=mysql
-   DB_HOST=127.0.0.1
-   DB_PORT=3306
-   DB_DATABASE=library_system
-   DB_USERNAME=root
-   DB_PASSWORD=
-7. Jalankan migrasi untuk membuat tabel-tabel di database
-bash
-   php artisan migrate
-8. Jalankan server lokal Laravel
-bash
-   php artisan serve
-9. Buka browser dan akses alamat berikut untuk melihat aplikasi berjalan
-   http://127.0.0.1:8000
+Install dependency PHP:
+
+Bash
+composer install
+Salin file .env.example menjadi .env:
+
+Bash
+cp .env.example .env
+Generate Application Key:
+
+Bash
+php artisan key:generate
+Jalankan server lokal Laravel:
+
+Bash
+php artisan serve
+Akses aplikasi di browser:
+Buka alamat http://127.0.0.1:8000/dashboard
+
 Author
 Aditya Nugraha
+
+
+---
+
+### Cara Memperbarui File `README.md` di Project Kamu:
+
+1. Buka file **`README.md`** yang ada di folder utama project kamu di VS Code.
+2. Hapus semua isinya, lalu *copy-paste* draf teks markdown di atas.
+3. Simpan file (`Ctrl + S`).
+4. Buka terminal VS Code dan *push* perubahan README ini ke GitHub:
+   ```bash
+   git add README.md
+   git commit -m "Update README for Pertemuan 6 assignment"
+   git push origin main
