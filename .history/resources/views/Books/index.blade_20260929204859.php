@@ -1,0 +1,23 @@
+<table class="book-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Judul</th>
+            <th>Penulis</th>
+            <th>Tahun Terbit</th>
+            <th>Stok</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach ($books as $book)
+            <tr>
+                <td>{{ $book->id }}</td>
+                <td>{{ $book->judul }}</td>
+                <td>{{ $book->penulis }}</td>
+                <td>{{ $book->tahun_terbit }}</td>
+                <td>{{ $book->stok }}</td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
