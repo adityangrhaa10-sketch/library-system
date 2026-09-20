@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ $title }}</title>
+</head>
+<body>
+    <h1>{{ $title }}</h1>
+    <p>{{ $description }}</p>
+    <h1>Daftar Buku</h1>
+<ul>
+ @foreach($books as $book)
+ <li>{{ $book }}</li>
+ @endforeach
+</ul>
+</body>
+</html>

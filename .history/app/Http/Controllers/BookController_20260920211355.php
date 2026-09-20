@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class BookController extends Controller
+{
+    public function index()
+    {
+        return view('books.index');
+    }
+
+    // Method show HARUS di dalam class ini
+    public function show($id)
+    {
+        return 'ID Buku: ' . $id;
+    }
+}
