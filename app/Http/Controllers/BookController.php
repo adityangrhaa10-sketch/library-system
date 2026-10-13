@@ -2,20 +2,60 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Book;
+use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
     public function index()
     {
         $books = Book::all();
-
         return view('books.index', compact('books'));
     }
 
-    public function show($id)
+    public function create()
     {
-        return view('books.show', compact('id'));
+        return view('books.create');
+    }
+
+    public function store(Request $request)
+    {
+        Book::create([
+            'judul'        => $request->title,
+            'penulis'      => $request->author,
+            'tahun_terbit' => $request->year,
+            'stok'         => $request->stock,
+        ]);
+
+        return redirect()->route('books.index');
+    }
+
+    public function show(Book $book)
+    {
+        return view('books.show', compact('book'));
+    }
+
+    public function edit(Book $book)
+    {
+        return view('books.edit', compact('book'));
+    }
+
+    public function update(Request $request, Book $book)
+    {
+        $book->update([
+            'judul'        => $request->title,
+            'penulis'      => $request->author,
+            'tahun_terbit' => $request->year,
+            'stok'         => $request->stock,
+        ]);
+
+        return redirect()->route('books.index');
+    }
+
+    public function destroy(Book $book)
+    {
+        $book->delete();
+
+        return redirect()->route('books.index');
     }
 }

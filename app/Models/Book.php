@@ -2,15 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Book extends Model
 {
-        protected $fillable = [
-            'judul',
-            'penulis',
-            'tahun_terbit',
-            'stok'
-        ];
-    }
+    use HasFactory;
 
+    protected $guarded = [];
+}
