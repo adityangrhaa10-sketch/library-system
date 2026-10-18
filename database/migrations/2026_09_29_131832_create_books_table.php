@@ -10,10 +10,10 @@ return new class extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();
-            $table->string('judul');
-            $table->string('penulis');
-            $table->year('tahun_terbit');
-            $table->integer('stok');
+            $table->string('title');
+            $table->string('author');
+            $table->integer('year');
+            $table->integer('stock');
             $table->timestamps();
         });
     }
