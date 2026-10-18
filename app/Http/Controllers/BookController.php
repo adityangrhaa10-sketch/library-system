@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class BookController extends Controller
 {
@@ -20,12 +21,14 @@ class BookController extends Controller
 
     public function store(Request $request)
     {
-        Book::create([
-            'judul'        => $request->title,
-            'penulis'      => $request->author,
-            'tahun_terbit' => $request->year,
-            'stok'         => $request->stock,
+        $validated = $request->validate([
+            'title'  => 'required|string|min:3|max:255|unique:books,title',
+            'author' => 'required|string|min:3|max:255',
+            'year'   => 'required|integer|min:1900|max:2026',
+            'stock'  => 'required|integer|min:0|max:1000',
         ]);
+
+        Book::create($validated);
 
         return redirect()->route('books.index');
     }
@@ -42,12 +45,14 @@ class BookController extends Controller
 
     public function update(Request $request, Book $book)
     {
-        $book->update([
-            'judul'        => $request->title,
-            'penulis'      => $request->author,
-            'tahun_terbit' => $request->year,
-            'stok'         => $request->stock,
+        $validated = $request->validate([
+            'title'  => ['required', 'string', 'min:3', 'max:255', Rule::unique('books')->ignore($book->id)],
+            'author' => 'required|string|min:3|max:255',
+            'year'   => 'required|integer|min:1900|max:2026',
+            'stock'  => 'required|integer|min:0|max:1000',
         ]);
+
+        $book->update($validated);
 
         return redirect()->route('books.index');
     }
