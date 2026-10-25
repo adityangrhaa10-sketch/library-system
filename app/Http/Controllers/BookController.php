@@ -31,11 +31,11 @@ class BookController extends Controller
         ]);
 
         Book::create([
-            'judul'        => $validated['title'],
-            'penulis'      => $validated['author'],
-            'tahun_terbit' => $validated['year'],
-            'stok'         => $validated['stock'],
-            'category_id'  => $validated['category_id'],
+            'title'       => $validated['title'],
+            'author'      => $validated['author'],
+            'year'        => $validated['year'],
+            'stock'       => $validated['stock'],
+            'category_id' => $validated['category_id'],
         ]);
 
         return redirect()->route('books.index');
@@ -63,11 +63,11 @@ class BookController extends Controller
         ]);
 
         $book->update([
-            'judul'        => $validated['title'],
-            'penulis'      => $validated['author'],
-            'tahun_terbit' => $validated['year'],
-            'stok'         => $validated['stock'],
-            'category_id'  => $validated['category_id'],
+            'title'       => $validated['title'],
+            'author'      => $validated['author'],
+            'year'        => $validated['year'],
+            'stock'       => $validated['stock'],
+            'category_id' => $validated['category_id'],
         ]);
 
         return redirect()->route('books.index');

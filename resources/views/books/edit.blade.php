@@ -10,12 +10,12 @@
         @method('PUT')
         <p>
             <label>Judul Buku:</label><br>
-            <input type="text" name="title" value="{{ old('title', $book->judul) }}" required>
+            <input type="text" name="title" value="{{ old('title', $book->title) }}" required>
             @error('title') <br><small style="color:red;">{{ $message }}</small> @enderror
         </p>
         <p>
             <label>Penulis:</label><br>
-            <input type="text" name="author" value="{{ old('author', $book->penulis) }}" required>
+            <input type="text" name="author" value="{{ old('author', $book->author) }}" required>
             @error('author') <br><small style="color:red;">{{ $message }}</small> @enderror
         </p>
         <p>
@@ -32,12 +32,12 @@
         </p>
         <p>
             <label>Tahun Terbit:</label><br>
-            <input type="number" name="year" value="{{ old('year', $book->tahun_terbit) }}" required>
+            <input type="number" name="year" value="{{ old('year', $book->year) }}" required>
             @error('year') <br><small style="color:red;">{{ $message }}</small> @enderror
         </p>
         <p>
             <label>Stok:</label><br>
-            <input type="number" name="stock" value="{{ old('stock', $book->stok) }}" required>
+            <input type="number" name="stock" value="{{ old('stock', $book->stock) }}" required>
             @error('stock') <br><small style="color:red;">{{ $message }}</small> @enderror
         </p>
         <button type="submit">Update</button>

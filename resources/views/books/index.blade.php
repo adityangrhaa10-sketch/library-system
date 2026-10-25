@@ -23,11 +23,11 @@
             @foreach($books as $book)
                 <tr>
                     <td>{{ $book->id }}</td>
-                    <td>{{ $book->judul }}</td>
-                    <td>{{ $book->penulis }}</td>
+                    <td>{{ $book->title }}</td>
+                    <td>{{ $book->author }}</td>
                     <td>{{ $book->category?->name ?? 'Belum ada kategori' }}</td>
-                    <td>{{ $book->tahun_terbit }}</td>
-                    <td>{{ $book->stok }}</td>
+                    <td>{{ $book->year }}</td>
+                    <td>{{ $book->stock }}</td>
                     <td>
                         <a href="{{ route('books.show', $book) }}">Detail</a> | 
                         <a href="{{ route('books.edit', $book) }}">Edit</a> | 
