@@ -3,7 +3,14 @@
 @section('title', 'Daftar Buku')
 
 @section('content')
-    <h3>Daftar Buku Perpustakaan</h3>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h3>Daftar Buku Perpustakaan</h3>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit">Logout</button>
+        </form>
+    </div>
+
     <a href="{{ route('books.create') }}">+ Tambah Buku Baru</a>
     <br><br>
 
@@ -11,12 +18,12 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Judul Buku</th>
-                <th>Penulis</th>
-                <th>Kategori</th>
-                <th>Tahun Terbit</th>
-                <th>Stok</th>
-                <th>Aksi</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Category</th>
+                <th>Year</th>
+                <th>Stock</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +41,7 @@
                         <form action="{{ route('books.destroy', $book) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" onclick="return confirm('Yakin ingin menghapus buku ini?')">Hapus</button>
+                            <button type="submit" onclick="return confirm('Yakin ingin menghapus buku ini?')">Delete</button>
                         </form>
                     </td>
                 </tr>
