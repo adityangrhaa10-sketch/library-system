@@ -5,10 +5,15 @@
 @section('content')
     <div style="display: flex; justify-content: space-between; align-items: center;">
         <h3>Daftar Buku Perpustakaan</h3>
-        <form action="{{ route('logout') }}" method="POST">
-            @csrf
-            <button type="submit">Logout</button>
-        </form>
+        <div>
+            @can('manage-users')
+                <a href="{{ route('users.index') }}" style="margin-right: 15px; font-weight: bold;">[ Kelola Pengguna ]</a>
+            @endcan
+            <form action="{{ route('logout') }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit">Logout</button>
+            </form>
+        </div>
     </div>
 
     <a href="{{ route('books.create') }}">+ Tambah Buku Baru</a>
